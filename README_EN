@@ -1,0 +1,137 @@
+#### This tutorial dscribes how to implement the carrier function in your shop system #### 
+
+Please follow the steps exactly, elsewere the upgrade abort.
+
+If you don't made any changes in the original templates, it's enough when you copy the new templates into the particular directory see below). 
+Anyway, you have to copy the missing files and templates into the particular directory.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Following templates to have to castomize:
+
+in \out\basic\tpl
+account_order.tpl
+
+in \out\admin\tpl
+order_main.tpl
+
+copying following files:
+
+in \out\admin\tpl
+carrer.tpl
+carrier_list.tpl
+carrier_main.tpl
+
+in \admin
+
+carrier.php
+carrier_main.php
+carrier_list.php
+menu.xml
+
+in \core
+
+oxcarrierlist.php
+oxcarrier.php
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+To create a database table
+
+To save and manage the carriers do you need in your database a further table (oxcarriertracking). It is also nassesary to add a field to the table 'oxorder' 
+
+If you use phpmyadmin to administer your database, than follow the steps below:
+
+1) Log on to phpmyadmin
+2) Choose your database
+3) Click the import rider 
+4) Choose the provided file 'update.sql' and click than [OK] 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+account_order.tpl :
+
+ Replace the line 54 
+   <a href="http://www.dpd.de/cgi-bin/delistrack?typ=1&amp;lang=de&amp;pknr=[{ $order->oxorder__oxtrackcode->value }]">[{ oxmultilang ident="ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>
+   through
+   <a href="[{$order->oxorder__oxtrackadr->value}][{ $order->oxorder__oxtrackcode->value }]" target="_blank">[{ oxmultilang ident="ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>   
+     
+ account_order.tpl is customized.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+order_main.tpl :
+
+ Insert 
+    [{if $edit->oxorder__oxtrackcode->value}]
+        <tr>
+         <td class="edittext">
+           [{ oxmultilang ident="GENERAL_CARRIER" }]
+         </td>
+         <td class="edittext">
+          <select class="editinput" name="editval[oxorder__oxtrackadr]" [{ $readonly }]>
+            [{ foreach from=$carrierlist item=oCarrier}]
+            <option value="[{$oCarrier->oxcarriertracking__oxtrackadr->value}]" [{if $oCarrier->oxcarriertracking__oxtrackadr->value == $edit->oxorder__oxtrackadr->value}]selected[{/if}]>[{$oCarrier->oxcarriertracking__oxtitle->value}]</option>
+            [{/foreach}]
+          </select>
+         </td>
+        </tr>
+    [{/if}]
+  between the lines of the tracking code and shipping costs		   
+
+ order_main.tpl is customized.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+menu.xml :
+
+ Insert 
+    <SUBMENU id="mxcarriertrack" cl="carrier" list="carrier_list">
+      <TAB id="tbclcarrier_main" cl="carrier_main" />
+      <BTN id="carrier_new" />
+    </SUBMENU>
+  between the lines 17 and 18.	
+	
+	menu.xml is cusomized.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+\admin\de\cust_lang.php
+
+  Insert into the array following language constants:  	
+  
+	'GENERAL_CARRIER'			=> 'Spediteur',
+	'CARRIER_LIST_TITLE'    	=> '[OXID Speditionsverwaltung]',
+	'GENERAL_TRACK_TITLE'		=> 'Spediteur',
+	'TOOLTIPS_NEWCARRIER'		=> 'Neuen Spediteur anlegen',
+	'CARRIER_MAIN_ICONUPLOAD'	=> 'Spediteut-Icon hochladen',
+	'CARRIER_LIST_MENUITEM'		=> 'Shopeinstellungen',
+	'CARRIER_LIST_MENUSUBITEM'	=> 'Spediteure',
+
+# menu
+
+	'mxcarriertrack'			=> 'Spediteure',
+  
+# tabs
+
+	// Carrier
+	'tbclcarrier_main'			=> 'Stamm', 		
+	
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+\admin\en\cust_lang.php
+
+  Insert into the array following language constants:
+  
+	'GENERAL_CARRIER'			=> 'Carrier',
+	'CARRIER_LIST_TITLE'    	=> '[OXID Speditionsverwaltung]',
+	'GENERAL_TRACK_TITLE'		=> 'Carrier',
+	'TOOLTIPS_NEWCARRIER'		=> 'Create New Carrier ',
+	'CARRIER_MAIN_ICONUPLOAD'	=> 'Upload Carrier Icon',
+	'CARRIER_LIST_MENUITEM'		=> 'Shop Settings',
+	'CARRIER_LIST_MENUSUBITEM'	=> 'Carriers',
+
+# menu
+
+	'mxcarriertrack'			=> 'Carriers',
+  
+# tabs
+
+	// Carrier
+	'tbclcarrier_main'			=> 'Main', 	
