@@ -115,7 +115,7 @@ function LockAssignment(obj)
                 [{ oxmultilang ident="GENERAL_ICON" }]
             </td>
             <td class="edittext">
-                <input type="text" class="editinput" size="25" maxlength="[{$edit->oxcarrier__oxicon->fldmax_length}]" name="editval[oxcarrier__oxicon]" value="[{$edit->oxcarrier__oxicon->value}]" [{ $readonly }]>
+                <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxicon->fldmax_length}]" name="editval[oxcarrier__oxicon]" value="[{$edit->oxcarrier__oxicon->value}]" [{ $readonly }]>
                 [{ oxinputhelp ident="HELP_GENERAL_ICON" }]
             </td>
             <td class="edittext">
@@ -130,7 +130,7 @@ function LockAssignment(obj)
                 [{ oxmultilang ident="MANUFACTURER_MAIN_ICONUPLOAD" }] ([{ oxmultilang ident="GENERAL_MAX_FILE_UPLOAD"}] [{$sMaxFormattedFileSize}], [{ oxmultilang ident="GENERAL_MAX_PICTURE_DIMENSIONS"}]):<br>
             </td>
             <td class="edittext" colspan="2">
-                <input class="editinput" name="myfile[CARICO@oxcarrier__oxicon]" type="file" [{ $readonly }]>
+                <input class="editinput" size="40" name="myfile[CARICO@oxcarrier__oxicon]" type="file" [{ $readonly }]>
                 [{ oxinputhelp ident="HELP_MANUFACTURER_MAIN_ICONUPLOAD" }]
             </td>
         </tr>

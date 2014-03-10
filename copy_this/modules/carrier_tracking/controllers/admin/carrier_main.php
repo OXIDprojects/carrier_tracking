@@ -1,24 +1,24 @@
 <?php
 /**
- *    This file is part of OXID eShop Community Edition.
+ * carrier_tacking / parcel service / Paketdienste
  *
- *    OXID eShop Community Edition is free software: you can redistribute it and/or modify
- *    it under the terms of the GNU General Public License as published by
- *    the Free Software Foundation, either version 3 of the License, or
- *    (at your option) any later version.
+ * This file is part of the module carrier_tacking for OXID eShop Community Edition.
  *
- *    OXID eShop Community Edition is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU General Public License for more details.
+ * The module carrier_tacking for OXID eShop Community Edition is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- *    You should have received a copy of the GNU General Public License
- *    along with OXID eShop Community Edition.  If not, see <http://www.gnu.org/licenses/>.
+ * The module carrier_tacking for OXID eShop Community Edition is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
  *
- * @link http://www.oxid-esales.com
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eShop Community Edition. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @link https://github.com/OXIDprojects/carrier_tracking
  * @package admin
- * @copyright © OXID eSales AG 2003-2009
- * $Id: adminlinks_main.php 14610 2008-12-10 17:46:54Z tomas $
  */
 
 /**

@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * carrier_tacking / parcel service / Paketdienste
+ *
+ * This file is part of the module carrier_tacking for OXID eShop Community Edition.
+ *
+ * The module carrier_tacking for OXID eShop Community Edition is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The module carrier_tacking for OXID eShop Community Edition is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OXID eShop Community Edition. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @link https://github.com/OXIDprojects/carrier_tracking
+ */
+
+/**
+ *  *
  * Metadata version
  */
 $sMetadataVersion = '1.1';
@@ -10,16 +32,30 @@ $sMetadataVersion = '1.1';
  */
 $aModule = array(
 'id'          => 'carrier_tracking',
-'title'       => 'Paketdienste verwalten',
-'description' => array(
-'de' => '',
-'en' => '',
+'title'       => array(
+'de' => 'Paketdienste verwalten',
+'en' => 'Parcel Service',
 ),
-'thumbnail'   => 'logo.jpg',
+'description' => array(
+'de' => '
+Eine einfache Verwaltung von Paketdiensten und deren Trackingsm&ouml;glichkeiten.<br>
+Damit können beliebige viele Dienstleister im Shop angelegt werden und inviduell jeder Bestellung als Versender und damit als Trackingurl hinterlegt werden.
+
+<br>
+<br>Author der Version 1.0 kann nicht mehr genau ermittelt werden(vermutlich eine Praktikumsarbeit bei Oxid).
+',
+'en' => 'A simple package management of services and their tracking capabilities.<br>
+This allows any number of service providers are created in the shop and inviduell every order be so deposited as senders and as Trackingurl.
+<br>
+<br>
+Author version 1.0 can not be accurately determined (probably a practical work at Oxid).
+',
+),
+'thumbnail'   => '',
 'version'     => '2.0',
-'author'      => 'OXID eSales AG',
-'url'         => 'http://www.oxid-esales.com',
-'email'       => 'info@oxid-esales.com',
+'author'      => 'Markus Gärtner',
+'url'         => 'https://github.com/OXIDprojects/carrier_tracking',
+'email'       => 'mg@projekt-one.de',
 'extend'      => array(
 'order_main'        => 'carrier_tracking/modules/application/controllers/admin/order_main_carrier_tracking',
 'oxorder'           => 'carrier_tracking/modules/application/models/oxorder_carrier_tracking',

@@ -1,6 +1,12 @@
 <?php
 
 /**
+ *
+ * @link https://github.com/OXIDprojects/carrier_tracking
+ * @package modules / core
+ */
+
+/**
  * currently not used
  *
  * Class oxdynimggenerator_carrier_tracking
@@ -25,6 +31,8 @@ class oxdynimggenerator_carrier_tracking extends oxdynimggenerator_carrier_track
                                           "sCatIconsize"          => '/.*\/generated\/category\/icon\/\d+\_\d+\_\d+$/',      // Size of a subcategory's picture
                                           "sCatPromotionsize"     => '/.*\/generated\/category\/promo_icon\/\d+\_\d+\_\d+$/', // Category picture size for promotion on startpage
 
+                                          // ** carrier
+                                          "sCarrierIconSsize"     => '/.*\/generated\/carrier\/icon\/\d+\_\d+\_\d+$/' // carrier logo size
     );
 
 

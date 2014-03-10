@@ -1,6 +1,12 @@
 <?php
 
 /**
+ *
+ * @link https://github.com/OXIDprojects/carrier_tracking
+ * @package admin
+ */
+
+/**
  * Class oxorder_carrier_tracking
  */
 class oxorder_carrier_tracking extends oxorder_carrier_tracking_parent
