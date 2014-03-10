@@ -13,9 +13,9 @@ This allows any number of service providers are created in the shop and inviduel
 
 Author version 1.0 can not be accurately determined (probably a practical work at Oxid)
 
-![Image alt](carrier_racking_admin.png)
-![Image alt](carrier_racking_order.png)
-![Image alt](carrier_racking_account_order.png)
+![Image alt](carrier_tracking_admin.png)
+![Image alt](carrier_tracking_order.png)
+![Image alt](carrier_tracking_account_order.png)
 
 Originally posted in August 2010:
 https://projects.oxidforge.org/projects/carriertracking
