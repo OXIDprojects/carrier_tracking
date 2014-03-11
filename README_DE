@@ -1,136 +1,15 @@
-#### In dieser Anleitung wird  beschrieben, wie Sie die Spediteur-Funktion in Ihren Shop inplementieren. ####
+Installation
+------------
 
-Bitte befolgen Sie alle Schritte genau, ansonsten schlägt die Anpassung fehl fehl.
+== Dateien kopieren ==
+Dateien aus dem Ordner "copy_this" 1:1 kopieren
 
-Wenn Sie keine Änderungen in den originalen Templates vorgenommen haben, genüg es, wenn Sie die Templates in das entprechende Verzeichnis kopieren (siehe unten).
-Auf alle Fälle müssen die fehlenden Dateien und Templates in die entsprechenden Verzeichnisse kopiert werden.
+== Datenbank anpassen ==
+Ausführen der SQL-Befehle aus der Datei "setup+doku/install.sql" bzw. "setup+doku/update.sql". Anschließend die Views neu generieren.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Folgende Templates müssen angepasst werden:
+== Templates anpassen ==
+Templates aus dem Ordner "changed_full" mit den Templates vergleichen und anpassen
 
-in \out\basic\tpl
-account_order.tpl
-
-in \out\admin\tpl
-order_main.tpl
-
-zu kopierende Dateien:
-
-in \out\admin\tpl
-carrer.tpl
-carrier_list.tpl
-carrier_main.tpl
-
-in \admin
-
-carrier.php
-carrier_main.php
-carrier_list.php
-menu.xml
-
-in \core
-
-oxcarrierlist.php
-oxcarrier.php
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Datenbank-Tabelle anlegen
-
-Um die Spediteure speichern und verwalten zu können ist es erforderlich in Ihre Datenbank eine weitere Tabelle anzulegen. Außerdem ist es notwendig, die Tabelle 'OXORDER' um ein Feld zu erweitern.
-
-Wenn sie zur Datenbank-Administration phpmyadmin verwenden gehen Sie folgendermaßen vor:
-
-1) Melden Sie sich in phpmyadmin an.
-2) Wählen Sie Ihre Datenbank aus
-3) Klicken Sie auf den Reiter "Importieren"
-4) Wählen Sie die mitgelieferte Datei update.sql aus und klicken anschließend auf [OK]
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-account_order.tpl :
-
- Ersetzen Sie in der Zeile 54  
-   <a href="http://www.dpd.de/cgi-bin/delistrack?typ=1&amp;lang=de&amp;pknr=[{ $order->oxorder__oxtrackcode->value }]">[{ oxmultilang ident="ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>
-   durch
-   <a href="[{$order->oxorder__oxtrackadr->value}][{ $order->oxorder__oxtrackcode->value }]" target="_blank">[{ oxmultilang ident="ACCOUNT_ORDER_TRACKSHIPMENT" }]</a>   
-     
-somit ist account_order.tpl angepasst.
-
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-order_main.tpl :
-
- Fügen Sie zwischen die Zeile des Trackcodes und der Versandkosten folgende Zeilen ein:
-    [{if $edit->oxorder__oxtrackcode->value}]
-        <tr>
-         <td class="edittext">
-           [{ oxmultilang ident="GENERAL_CARRIER" }]
-         </td>
-         <td class="edittext">
-          <select class="editinput" name="editval[oxorder__oxtrackadr]" [{ $readonly }]>
-            [{ foreach from=$carrierlist item=oCarrier}]
-            <option value="[{$oCarrier->oxcarriertracking__oxtrackadr->value}]" [{if $oCarrier->oxcarriertracking__oxtrackadr->value == $edit->oxorder__oxtrackadr->value}]selected[{/if}]>[{$oCarrier->oxcarriertracking__oxtitle->value}]</option>
-            [{/foreach}]
-          </select>
-         </td>
-        </tr>
-    [{/if}]
-		   
-
-somit ist order_main.tpl angepasst.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-menu.xml :
-
- Fügen Sie zwischen den Zeilen 17 und 18 folgendes ein:
-    <SUBMENU id="mxcarriertrack" cl="carrier" list="carrier_list">
-      <TAB id="tbclcarrier_main" cl="carrier_main" />
-      <BTN id="carrier_new" />
-    </SUBMENU>
-	
-	somit ist menu.xml angepasst.
-
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
-\admin\de\cust_lang.php
-
-  Fügen Sie in das Array folgende Sprach-Konstanten ein:  	
-  
-	'GENERAL_CARRIER'			=> 'Spediteur',
-	'CARRIER_LIST_TITLE'    	=> '[OXID Speditionsverwaltung]',
-	'GENERAL_TRACK_TITLE'		=> 'Spediteur',
-	'TOOLTIPS_NEWCARRIER'		=> 'Neuen Spediteur anlegen',
-	'CARRIER_MAIN_ICONUPLOAD'	=> 'Spediteut-Icon hochladen',
-	'CARRIER_LIST_MENUITEM'		=> 'Shopeinstellungen',
-	'CARRIER_LIST_MENUSUBITEM'	=> 'Spediteure',
-
-# menu
-
-	'mxcarriertrack'			=> 'Spediteure',
-  
-# tabs
-
-	// Carrier
-	'tbclcarrier_main'			=> 'Stamm', 		
-	
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-\admin\en\cust_lang.php
-
-  Fügen Sie in das Array folgende Sprach-Konstanten ein:  	
-  
-	'GENERAL_CARRIER'			=> 'Carrier',
-	'CARRIER_LIST_TITLE'    	=> '[OXID Speditionsverwaltung]',
-	'GENERAL_TRACK_TITLE'		=> 'Carrier',
-	'TOOLTIPS_NEWCARRIER'		=> 'Create New Carrier ',
-	'CARRIER_MAIN_ICONUPLOAD'	=> 'Upload Carrier Icon',
-	'CARRIER_LIST_MENUITEM'		=> 'Shop Settings',
-	'CARRIER_LIST_MENUSUBITEM'	=> 'Carriers',
-
-# menu
-
-	'mxcarriertrack'			=> 'Carriers',
-  
-# tabs
-
-	// Carrier
-	'tbclcarrier_main'			=> 'Main', 	
+== Modul aktiviren ==
+Modul im Admin unter [Erweiterungen] --> [Module] --> "Paketdienste verwalten" --> [Tab Stamm] aktivieren.
