@@ -51,7 +51,6 @@ class oxCarrierList extends oxList
     public function selectString($sSQL)
     {
         parent::selectString($sSQL);
-        uasort($this->_aArray, array($this, '_localCompare'));
     }
 
     /**
@@ -62,55 +61,5 @@ class oxCarrierList extends oxList
         $sTableCarrier = getViewName('oxcarriers');
         $sSelect = "SELECT * FROM ".$sTableCarrier." WHERE oxactive = '1' ORDER BY oxtitle ";
         $this->selectString($sSelect);
-    }
-
-    /**
-     * Improved country sorting that handles umlauts.
-     * Replaces umlauts and compares country titles.
-     *
-     * @param oxCountry $oA oxCountry object
-     * @param oxCountry $oB oxCountry oxCountry object
-     *
-     * @return bool
-     */
-    protected function _localCompare($oA, $oB)
-    {
-        if ($oA->oxcarriers__oxsort->value != $oB->oxcarriers__oxsort->value) {
-            if ($oA->oxcarriers__oxsort->value < $oB->oxcarriers__oxsort->value) {
-                return -1;
-            } else {
-                return 1;
-            }
-        }
-
-        $aReplaceWhat = array(
-        '/ä/',
-        '/ö/',
-        '/ü/',
-        '/Ü/',
-        '/Ä/',
-        '/Ö/',
-        '/ß/',
-        '/&auml;/',
-        '/&ouml;/',
-        '/&uuml;/',
-        '/&Auml;/',
-        '/&Ouml;/',
-        '/&Uuml;/',
-        '/&szlig;/'
-        );
-        $aReplaceTo   = array('az', 'oz', 'uz', 'Uz', 'Az', 'Oz', 'sz', 'az', 'oz', 'uz', 'Az', 'Oz', 'Uz', 'sz');
-
-        $sACodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oA->oxcarriers__oxtitle->value);
-        $sBCodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oB->oxcarriers__oxtitle->value);
-
-        $iRes = strcasecmp($sACodedTitle, $sBCodedTitle);
-
-        // if equal, using case sensitive compare
-        if ($iRes === 0) {
-            $iRes = strcmp($sACodedTitle, $sBCodedTitle);
-        }
-
-        return $iRes;
     }
 }
