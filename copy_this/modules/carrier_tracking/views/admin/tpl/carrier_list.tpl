@@ -43,18 +43,18 @@ window.onload = function ()
     </td>
     <td valign="top" class="listfilter">
         <div class="r1"><div class="b1">
-        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxcarrier][oxtitle]" value="[{$where->oxcarrier__oxtitle}]">
+        <input class="listedit" type="text" size="20" maxlength="128" name="where[oxcarriers][oxtitle]" value="[{$where->oxcarriers__oxtitle}]">
         </div></div>
     </td>
     <td valign="top" class="listfilter">
         <div class="r1"><div class="b1">
-        <input class="listedit" type="text" size="50" maxlength="128" name="where[oxcarrier][oxcarrierurl]" value="[{$where->oxcarrier__oxcarrierurl}]">
+        <input class="listedit" type="text" size="50" maxlength="128" name="where[oxcarriers][oxcarrierurl]" value="[{$where->oxcarriers__oxcarrierurl}]">
         </div></div>
     </td>
 
     <td valign="top" class="listfilter">
         <div class="r1"><div class="b1">
-        [{*<input class="listedit" type="text" size="30" maxlength="128" name="where[oxcarrier][oxinsert]" value="[{$where->oxcarrier__oxinsert}]">*}]
+        [{*<input class="listedit" type="text" size="30" maxlength="128" name="where[oxcarrier][oxinsert]" value="[{$where->oxcarriers__oxinsert}]">*}]
         </div></div>
     </td>
     <td valign="top" class="listfilter" colspan="2">
@@ -75,9 +75,9 @@ window.onload = function ()
 </tr>
 
 <tr>
-    <td class="listheader first" height="15" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarrier', 'oxactive', 'asc');document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_ARTICLE_OXACTIVE"}]</a></td>
-    <td class="listheader" height="15"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarrier', 'oxtitle', 'asc');document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_TITLE"}]</a></td>
-	<td class="listheader" height="15"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarrier', 'oxcarrierurl', 'asc')document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_URL"}]</a></td>
+    <td class="listheader first" height="15" align="center"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarriers', 'oxactive', 'asc');document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_ARTICLE_OXACTIVE"}]</a></td>
+    <td class="listheader" height="15"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarriers', 'oxtitle', 'asc');document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_TITLE"}]</a></td>
+	<td class="listheader" height="15"><a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarriers', 'oxcarrierurl', 'asc')document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_URL"}]</a></td>
     <td class="listheader" height="15" colspan="2">
         [{*<a href="Javascript:top.oxid.admin.setSorting( document.search, 'oxcarrier', 'oxinsert', 'asc');document.search.submit();" class="listheader">[{oxmultilang ident="GENERAL_DATE"}]</a>*}]
     </td>
@@ -97,17 +97,17 @@ window.onload = function ()
         [{if $listitem->getId() == $oxid}]
             [{assign var="listclass" value=listitem4}]
         [{/if}]
-        <td valign="top" class="[{$listclass}][{if $listitem->oxcarrier__oxactive->value == 1}] active[{/if}]" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarrier__oxid->value}]');" class="[{$listclass}]">
+        <td valign="top" class="[{$listclass}][{if $listitem->oxcarriers__oxactive->value == 1}] active[{/if}]" height="15"><div class="listitemfloating">&nbsp;<a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarriers__oxid->value}]');" class="[{$listclass}]">
          &nbsp;
         </a></div></td>
-        <td valign="top" class="[{$listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarrier__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarrier__oxtitle->value}]</a></div></td>
-        <td valign="top" class="[{$listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarrier__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarrier__oxcarrierurl->value}]</a></div></td>
+        <td valign="top" class="[{$listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarriers__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarriers__oxtitle->value}]</a></div></td>
+        <td valign="top" class="[{$listclass}]" height="15"><div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarriers__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarriers__oxcarrierurl->value}]</a></div></td>
         <td valign="top" class="[{$listclass}]" height="15">
-            [{*<div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarrier__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarrier__oxinsert->value}]</a>*}]
+            [{*<div class="listitemfloating"><a href="Javascript:top.oxid.admin.editThis('[{$listitem->oxcarriers__oxid->value}]');" class="[{$listclass}]">[{$listitem->oxcarriers__oxinsert->value}]</a>*}]
             </div></td>
         <td align="right" class="[{$listclass}]">
         [{if !$readonly}]
-        <a href="Javascript:top.oxid.admin.deleteThis('[{$listitem->oxcarrier__oxid->value}]');" class="delete" id="del.[{$_cnt}]" title="" [{include file="help.tpl" helpid=item_delete}]></a>
+        <a href="Javascript:top.oxid.admin.deleteThis('[{$listitem->oxcarriers__oxid->value}]');" class="delete" id="del.[{$_cnt}]" title="" [{include file="help.tpl" helpid=item_delete}]></a>
         [{/if}]
         </td>
     [{/block}]

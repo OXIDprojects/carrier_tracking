@@ -41,7 +41,7 @@ function DeletePic( sField )
 <input type="hidden" name="cl" value="carrier_main">
 <input type="hidden" name="fnc" value="">
 <input type="hidden" name="oxid" value="[{$oxid}]">
-<input type="hidden" name="editval[oxcarrier__oxid]" value="[{$oxid}]">
+<input type="hidden" name="editval[oxcarriers__oxid]" value="[{$oxid}]">
 <input type="hidden" name="language" value="[{$actlang}]">
 <input type="hidden" name="masterPicField" value="">
 
@@ -60,7 +60,7 @@ function DeletePic( sField )
             [{oxmultilang ident="GENERAL_ACTIVE"}]
             </td>
             <td class="edittext" colspan="2">
-            <input class="edittext" type="checkbox" name="editval[oxcarrier__oxactive]" value='1' [{if $edit->oxcarrier__oxactive->value == 1}]checked[{/if}] [{$readonly}]>
+            <input class="edittext" type="checkbox" name="editval[oxcarriers__oxactive]" value='1' [{if $edit->oxcarriers__oxactive->value == 1}]checked[{/if}] [{$readonly}]>
             </td>
         </tr>
         <tr>
@@ -68,7 +68,7 @@ function DeletePic( sField )
             [{oxmultilang ident="GENERAL_TITLE"}]
             </td>
             <td class="edittext" colspan="2">
-            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxtitle->fldmax_length}]" id="oLockTarget" name="editval[oxcarrier__oxtitle]" value="[{$edit->oxcarrier__oxtitle->value}]" [{$readonly}]>
+            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarriers__oxtitle->fldmax_length}]" id="oLockTarget" name="editval[oxcarriers__oxtitle]" value="[{$edit->oxcarriers__oxtitle->value}]" [{$readonly}]>
             </td>
         </tr>
         <tr>
@@ -76,7 +76,7 @@ function DeletePic( sField )
             [{oxmultilang ident="GENERAL_SHORTDESC"}]
             </td>
             <td class="edittext" colspan="2">
-            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxshortdesc->fldmax_length}]" name="editval[oxcarrier__oxshortdesc]" value="[{$edit->oxcarrier__oxshortdesc->value}]" [{$readonly}]>
+            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarriers__oxshortdesc->fldmax_length}]" name="editval[oxcarriers__oxshortdesc]" value="[{$edit->oxcarriers__oxshortdesc->value}]" [{$readonly}]>
             </td>
         </tr>
 		 <tr>
@@ -84,7 +84,7 @@ function DeletePic( sField )
             [{oxmultilang ident="GENERAL_URL"}]
             </td>
             <td class="edittext" colspan="2">
-            <input type="text" class="editinput" size="70" maxlength="[{$edit->oxcarrier__oxcarrierurl->fldmax_length}]" name="editval[oxcarrier__oxcarrierurl]" value="[{$edit->oxcarrier__oxcarrierurl->value}]" [{$readonly}]>
+            <input type="text" class="editinput" size="70" maxlength="[{$edit->oxcarriers__oxcarrierurl->fldmax_length}]" name="editval[oxcarriers__oxcarrierurl]" value="[{$edit->oxcarriers__oxcarrierurl->value}]" [{$readonly}]>
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@ function DeletePic( sField )
             [{oxmultilang ident="GENERAL_SORT"}]
             </td>
             <td class="edittext" colspan="2">
-            <input type="text" class="editinput" size="5" maxlength="[{$edit->oxcarrier__oxsort->fldmax_length}]" name="editval[oxcarrier__oxsort]" value="[{$edit->oxcarrier__oxsort->value}]" [{$readonly}]>
+            <input type="text" class="editinput" size="5" maxlength="[{$edit->oxcarriers__oxsort->fldmax_length}]" name="editval[oxcarriers__oxsort]" value="[{$edit->oxcarriers__oxsort->value}]" [{$readonly}]>
             </td>
         </tr>
 
@@ -101,11 +101,11 @@ function DeletePic( sField )
                 [{ oxmultilang ident="GENERAL_ICON" }]
             </td>
             <td class="edittext">
-                <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxicon->fldmax_length}]" name="editval[oxcarrier__oxicon]" value="[{$edit->oxcarrier__oxicon->value}]" [{ $readonly }]>
+                <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarriers__oxicon->fldmax_length}]" name="editval[oxcarriers__oxicon]" value="[{$edit->oxcarriers__oxicon->value}]" [{ $readonly }]>
                 [{ oxinputhelp ident="HELP_GENERAL_ICON" }]
             </td>
             <td class="edittext">
-                [{ if (!($edit->oxcarrier__oxicon->value=="nopic.jpg" || $edit->oxcarrier__oxicon->value=="" || $edit->oxcarrier__oxicon->value=="nopic_ico.jpg")) }]
+                [{ if (!($edit->oxcarriers__oxicon->value=="nopic.jpg" || $edit->oxcarriers__oxicon->value=="" || $edit->oxcarriers__oxicon->value=="nopic_ico.jpg")) }]
                     <a href="Javascript:DeletePic('oxicon');" class="delete left" [{include file="help.tpl" helpid=item_delete}]></a>
                 [{/if}]
             </td>
@@ -116,7 +116,7 @@ function DeletePic( sField )
                 [{ oxmultilang ident="MANUFACTURER_MAIN_ICONUPLOAD" }] ([{ oxmultilang ident="GENERAL_MAX_FILE_UPLOAD"}] [{$sMaxFormattedFileSize}], [{ oxmultilang ident="GENERAL_MAX_PICTURE_DIMENSIONS"}]):<br>
             </td>
             <td class="edittext" colspan="2">
-                <input class="editinput" size="40" name="myfile[CARICO@oxcarrier__oxicon]" type="file" [{ $readonly }]>
+                <input class="editinput" size="40" name="myfile[CARICO@oxcarriers__oxicon]" type="file" [{ $readonly }]>
                 [{ oxinputhelp ident="HELP_MANUFACTURER_MAIN_ICONUPLOAD" }]
             </td>
         </tr>
@@ -136,7 +136,7 @@ function DeletePic( sField )
             <td class="edittext"><br><br>
             </td>
             <td class="edittext" colspan="2"><br><br>
-                <input type="submit" class="edittext" id="oLockButton" name="saveCarrier" value="[{oxmultilang ident="GENERAL_SAVE"}]" onClick="Javascript:document.myedit.fnc.value='save'" [{$readonly}] [{if !$edit->oxcarrier__oxtitle->value && !$oxparentid}]disabled[{/if}]><br>
+                <input type="submit" class="edittext" id="oLockButton" name="saveCarrier" value="[{oxmultilang ident="GENERAL_SAVE"}]" onClick="Javascript:document.myedit.fnc.value='save'" [{$readonly}] [{if !$edit->oxcarriers__oxtitle->value && !$oxparentid}]disabled[{/if}]><br>
             </td>
         </tr>
 

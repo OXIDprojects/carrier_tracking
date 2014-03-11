@@ -59,7 +59,7 @@ class oxCarrierList extends oxList
      */
     public function loadActiveCarriers()
     {
-        $sTableCarrier = getViewName('oxcarrier');
+        $sTableCarrier = getViewName('oxcarriers');
         $sSelect = "SELECT * FROM ".$sTableCarrier." WHERE oxactive = '1' ORDER BY oxtitle ";
         $this->selectString($sSelect);
     }
@@ -75,8 +75,8 @@ class oxCarrierList extends oxList
      */
     protected function _localCompare($oA, $oB)
     {
-        if ($oA->oxcarrier__oxsort->value != $oB->oxcarrier__oxsort->value) {
-            if ($oA->oxcarrier__oxsort->value < $oB->oxcarrier__oxsort->value) {
+        if ($oA->oxcarriers__oxsort->value != $oB->oxcarriers__oxsort->value) {
+            if ($oA->oxcarriers__oxsort->value < $oB->oxcarriers__oxsort->value) {
                 return -1;
             } else {
                 return 1;
@@ -101,8 +101,8 @@ class oxCarrierList extends oxList
         );
         $aReplaceTo   = array('az', 'oz', 'uz', 'Uz', 'Az', 'Oz', 'sz', 'az', 'oz', 'uz', 'Az', 'Oz', 'Uz', 'sz');
 
-        $sACodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oA->oxcarrier__oxtitle->value);
-        $sBCodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oB->oxcarrier__oxtitle->value);
+        $sACodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oA->oxcarriers__oxtitle->value);
+        $sBCodedTitle = preg_replace($aReplaceWhat, $aReplaceTo, $oB->oxcarriers__oxtitle->value);
 
         $iRes = strcasecmp($sACodedTitle, $sBCodedTitle);
 

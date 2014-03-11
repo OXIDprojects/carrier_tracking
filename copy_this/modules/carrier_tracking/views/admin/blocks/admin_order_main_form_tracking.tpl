@@ -16,7 +16,7 @@
             <select class="editinput" name="editval[oxorder__oxcarrierid]" [{$readonly}]>
                 <option value="">----</option>
                 [{foreach from=$carrierlist item=oCarrier}]
-                    <option value="[{$oCarrier->oxcarrier__oxid->value}]" [{if $oCarrier->oxcarrier__oxid->value == $edit->oxorder__oxcarrierid->value}]selected[{/if}]>[{$oCarrier->oxcarrier__oxtitle->value}]</option>
+                    <option value="[{$oCarrier->oxcarriers__oxid->value}]" [{if $oCarrier->oxcarriers__oxid->value == $edit->oxorder__oxcarrierid->value}]selected[{/if}]>[{$oCarrier->oxcarriers__oxtitle->value}]</option>
                 [{/foreach}]
             </select>
         </td>

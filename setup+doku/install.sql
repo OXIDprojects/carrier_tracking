@@ -1,6 +1,6 @@
 ### Create the table 'oxcarrier
 
-CREATE TABLE IF NOT EXISTS `oxcarrier` (
+CREATE TABLE IF NOT EXISTS `oxcarriers` (
     `OXID` char(32) COLLATE latin1_general_ci NOT NULL,
     `OXSHOPID` char(32) COLLATE latin1_general_ci NOT NULL,
     `OXACTIVE` tinyint(1) NOT NULL DEFAULT '0',
