@@ -1,4 +1,4 @@
-### Create the table 'oxcarrier
+### Create the table 'oxcarriers
 
 CREATE TABLE IF NOT EXISTS `oxcarriers` (
     `OXID` char(32) COLLATE latin1_general_ci NOT NULL,
@@ -21,6 +21,13 @@ CREATE TABLE IF NOT EXISTS `oxcarriers` (
 
 ALTER TABLE `oxorder` ADD `OXCARRIERURL` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL ;
 ALTER TABLE `oxorder` ADD `OXCARRIERID` CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL ;
+
+
+### add some carriers
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('98a73994e57acabbe830d6771c685104', 'oxbaseshop', 1, 'DPD', '', 20, '      ', '', '', 'https://tracking.dpd.de/cgi-bin/delistrack?typ=32&lang=de&pknr=', '2014-03-11 17:28:16');
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('51f2c860d5d9d321aa13e1d688206da7', 'oxbaseshop', 1, 'DHL', '', 10, '  ', '', '', 'http://nolp.dhl.de/nextt-online-public/gw/info/no_tracking_info.action?paketnummer=', '2014-03-11 17:28:09');
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('f692d093c2f7e937782beb428bf0122d', 'oxbaseshop', 1, 'Hermes', '', 30, '  ', '', '', 'https://tracking.hermesworld.com/?traceViaShipmentId=Sendung+verfolgen&TrackID=', '2014-03-11 17:28:22');
+
 
 /*
 Next Line: currently not used
