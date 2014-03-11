@@ -15,8 +15,8 @@ $aLang = array(
 # tabs
 'tbclcarrier_main'             => 'Main',
 
-'SHOP_THEME_sCarrierIconSsize'             => 'Parcel Service icons size (width*hight)',
-'HELP_SHOP_THEME_sCarrierIconSsize'             => 'Parcel Service Icons size in pixels (width*hight)',
+'SHOP_THEME_sCarrierIconSize'             => 'Parcel Service icons size (width*hight)',
+'HELP_SHOP_THEME_sCarrierIconSize'             => 'Parcel Service Icons size in pixels (width*hight)',
 
 'CARRIER_PICTURES_UPLOADISDISABLED'                       => 'This is a demoshop. Uploading or deleting images has been switched off due to security reasons.',
 );

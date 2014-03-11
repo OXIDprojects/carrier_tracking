@@ -41,7 +41,7 @@ class Carrier_Main extends oxAdminDetails
         $soxId = $this->_aViewData["oxid"] = $this->getEditObjectId();
         if ( $soxId != "-1" && isset( $soxId)) {
             /** @var oxcarrier $oCarrier */
-            $oCarrier = oxNew( "oxcarrier", getViewName( 'oxcarrier'));
+            $oCarrier = oxNew("oxcarrier");
             $oCarrier->loadInLang( $this->_iEditLang, $soxId );
 
             $oOtherLang = $oCarrier->getAvailableInLangs();
@@ -73,35 +73,36 @@ class Carrier_Main extends oxAdminDetails
     public function save()
     {
         parent::save();
-        $soxId      = oxConfig::getParameter( "oxid");
-        $aParams    = oxConfig::getParameter( "editval");
+        $soxId      = oxConfig::getParameter("oxid");
+        $aParams    = oxConfig::getParameter("editval");
+
         // checkbox handling
-        if (!isset($aParams['oxcarrier__oxactive'])) {
-            $aParams['oxcarrier__oxactive'] = 0;
+        if (!isset($aParams['oxcarriers__oxactive'])) {
+            $aParams['oxcarriers__oxactive'] = 0;
         }
 
         // adds space to the end of URL description to keep new added links visible
         // if URL description left empty
-        if (isset($aParams['oxcarrier__oxshortdesc']) && strlen(
-        $aParams['oxoxcarrier__oxshortdesc']
+        if (isset($aParams['oxcarriers__oxshortdesc']) && strlen(
+        $aParams['oxoxcarriers__oxshortdesc']
         ) == 0
         ) {
-            $aParams['oxcarrier__oxshortdesc'] .= " ";
+            $aParams['oxcarriers__oxshortdesc'] .= " ";
         }
 
         // shopid
         $sShopID = oxRegistry::getConfig()->getShopId();
-        $aParams['oxcarrier__oxshopid'] = $sShopID;
+        $aParams['oxcarriers__oxshopid'] = $sShopID;
 
         /** @var oxcarrier $oCarrier */
-        $oCarrier = oxNew( "oxcarrier");
+        $oCarrier = oxNew("oxcarrier");
 
         if ( $soxId != "-1") {
             //$oCarrier->load( $soxId );
             $oCarrier->loadInLang( $this->_iEditLang, $soxId );
 
         } else {
-            $aParams['oxcarrier__oxid'] = null;
+            $aParams['oxcarriers__oxid'] = null;
         }
 
         $oCarrier->setLanguage(0);
@@ -124,21 +125,21 @@ class Carrier_Main extends oxAdminDetails
         $soxId      = oxConfig::getParameter( "oxid");
         $aParams    = oxConfig::getParameter( "editval");
         // checkbox handling
-        if (!isset($aParams['oxcarrier__oxactive'])) {
-            $aParams['oxcarrier__oxactive'] = 0;
+        if (!isset($aParams['oxcarriers__oxactive'])) {
+            $aParams['oxcarriers__oxactive'] = 0;
         }
 
         // shopid
         $sShopID = oxRegistry::getConfig()->getShopId();
-        $aParams['oxcarrier__oxshopid'] = $sShopID;
+        $aParams['oxcarriers__oxshopid'] = $sShopID;
 
         /** @var oxcarrier $oCarrier */
-        $oCarrier = oxNew( "oxcarrier");
+        $oCarrier = oxNew("oxcarrier");
 
         if ($soxId != "-1") {
             $oCarrier->loadInLang($this->_iEditLang, $soxId);
         } else {
-            $aParams['oxcarrier__oxid'] = null;
+            $aParams['oxcarriers__oxid'] = null;
         }
 
         $oCarrier->setLanguage(0);
@@ -176,7 +177,7 @@ class Carrier_Main extends oxAdminDetails
         }
 
         /** @var oxcarrier $oCarrier */
-        $oCarrier = oxNew( "oxcarrier");
+        $oCarrier = oxNew("oxcarrier");
         $oCarrier->load($sOxId);
         $this->_deleteCatPicture($oCarrier, $sField);
     }
@@ -192,7 +193,7 @@ class Carrier_Main extends oxAdminDetails
     protected function _deleteCatPicture(oxcarrier $oItem, $sField)
     {
         $myConfig = $this->getConfig();
-        $sItemKey = 'oxcarrier__'.$sField;
+        $sItemKey = 'oxcarriers__'.$sField;
 
         switch ($sField) {
             case 'oxicon':
@@ -207,7 +208,7 @@ class Carrier_Main extends oxAdminDetails
 
             $myUtilsPic = oxRegistry::get("oxUtilsPic");
             $sDir = $myConfig->getPictureDir(false);
-            $myUtilsPic->safePictureDelete($oItem->$sItemKey->value, $sDir . oxRegistry::get("oxUtilsFile")->getImageDirByType($sImgType), 'oxcarrier', $sField);
+            $myUtilsPic->safePictureDelete($oItem->$sItemKey->value, $sDir . oxRegistry::get("oxUtilsFile")->getImageDirByType($sImgType), 'oxcarriers', $sField);
 
             $oItem->$sItemKey = new oxField();
             $oItem->save();

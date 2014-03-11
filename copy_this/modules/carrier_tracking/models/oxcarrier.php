@@ -33,7 +33,7 @@ class oxCarrier extends oxI18n
      *
      * @var string
      */
-    protected $_sCoreTbl = 'oxcarrier';
+    protected $_sCoreTbl = 'oxcarriers';
 
     /**
      * Current class name
@@ -63,7 +63,7 @@ class oxCarrier extends oxI18n
      */
     protected function _setFieldData( $sFieldName, $sValue, $iDataType = oxField::T_TEXT)
     {
-        if ('oxshortdesc' === strtolower($sFieldName) || 'oxcarrier__oxshortdesc' === strtolower($sFieldName)) {
+        if ('oxshortdesc' === strtolower($sFieldName) || 'oxcarriers__oxshortdesc' === strtolower($sFieldName)) {
             $iDataType = oxField::T_RAW;
         }
 
@@ -79,8 +79,11 @@ class oxCarrier extends oxI18n
     {
         $sIcon = $this->getFieldData('oxicon');
 
-        if ( $sIcon) {
+        if ($sIcon) {
             return $this->getConfig()->getPictureUrl( "master/carrier/icon/".$sIcon, false, $this->getConfig()->isSsl(), null, $this->getFieldData('oxshopid') );
+        }
+        else{
+            return '';
         }
 
         /*

@@ -1,8 +1,6 @@
+### Create the table 'oxcarriers
 
-
-### Create the table 'oxcarrier
-
-CREATE TABLE IF NOT EXISTS `oxcarrier` (
+CREATE TABLE IF NOT EXISTS `oxcarriers` (
     `OXID` char(32) COLLATE latin1_general_ci NOT NULL,
     `OXSHOPID` char(32) COLLATE latin1_general_ci NOT NULL,
     `OXACTIVE` tinyint(1) NOT NULL DEFAULT '0',
@@ -25,11 +23,20 @@ ALTER TABLE `oxorder` ADD `OXCARRIERURL` VARCHAR( 255 ) CHARACTER SET latin1 COL
 ALTER TABLE `oxorder` ADD `OXCARRIERID` CHAR( 32 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL ;
 
 
-INSERT INTO `oxconfigdisplay` (`OXID`, `OXCFGMODULE`, `OXCFGVARNAME`, `OXGROUPING`, `OXVARCONSTRAINT`, `OXPOS`) VALUES
-('1ec4235c2aee774aa45d772875437920', 'theme:azure', 'sCarrierIconSsize', 'images', '', 1);
+### add some carriers
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('98a73994e57acabbe830d6771c685104', 'oxbaseshop', 1, 'DPD', '', 20, '      ', '', '', 'https://tracking.dpd.de/cgi-bin/delistrack?typ=32&lang=de&pknr=', '2014-03-11 17:28:16');
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('51f2c860d5d9d321aa13e1d688206da7', 'oxbaseshop', 1, 'DHL', '', 10, '  ', '', '', 'http://nolp.dhl.de/nextt-online-public/gw/info/no_tracking_info.action?paketnummer=', '2014-03-11 17:28:09');
+INSERT INTO `oxcarriers` (`OXID`, `OXSHOPID`, `OXACTIVE`, `OXTITLE`, `OXTITLE_1`, `OXSORT`, `OXSHORTDESC`, `OXSHORTDESC_1`, `OXICON`, `OXCARRIERURL`, `OXTIMESTAMP`) VALUES('f692d093c2f7e937782beb428bf0122d', 'oxbaseshop', 1, 'Hermes', '', 30, '  ', '', '', 'https://tracking.hermesworld.com/?traceViaShipmentId=Sendung+verfolgen&TrackID=', '2014-03-11 17:28:22');
 
-INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
-('1ec4235c2aee774aa45d772875437920', 'oxbaseshop', 'theme:azure', 'sCarrierIconSsize', 'str', 0x8064a213b1);
 
-INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
-('1ec4235c2aee774aa45d772875437920', 'oxbaseshop', 'theme:mobile', 'sCarrierIconSsize', 'str', 0x8064a213b1);
+/*
+Next Line: currently not used
+*/
+#INSERT INTO `oxconfigdisplay` (`OXID`, `OXCFGMODULE`, `OXCFGVARNAME`, `OXGROUPING`, `OXVARCONSTRAINT`, `OXPOS`) VALUES
+#(md5('carrier sCarrierIconSize'), 'theme:azure', 'sCarrierIconSize', 'images', '', 1);
+
+#INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
+#(md5('carrier sCarrierIconSize'), 'oxbaseshop', 'theme:azure', 'sCarrierIconSize', 'str', 0x8064a213b1);
+
+#INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
+#(md5('carrier sCarrierIconSize'), 'oxbaseshop', 'theme:mobile', 'sCarrierIconSize', 'str', 0x8064a213b1);
