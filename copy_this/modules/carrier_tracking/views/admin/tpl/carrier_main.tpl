@@ -19,20 +19,6 @@ function DeletePic( sField )
     oForm.submit();
 }
 
-function LockAssignment(obj)
-{   var aButton = document.myedit.assignArticle;
-    if ( aButton != null && obj != null )
-    {
-        if (obj.value > 0)
-        {
-            aButton.disabled = true;
-        }
-        else
-        {
-            aButton.disabled = false;
-        }
-    }
-}
 //-->
 </script>
 
@@ -82,7 +68,7 @@ function LockAssignment(obj)
             [{oxmultilang ident="GENERAL_TITLE"}]
             </td>
             <td class="edittext" colspan="2">
-            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxtitle->fldmax_length}]" name="editval[oxcarrier__oxtitle]" value="[{$edit->oxcarrier__oxtitle->value}]" [{if !$oxparentid}]onchange="JavaScript:UnlockSave(this);" onkeyup="JavaScript:UnlockSave(this);" onmouseout="JavaScript:UnlockSave(this);"[{/if}] [{$readonly}]>
+            <input type="text" class="editinput" size="40" maxlength="[{$edit->oxcarrier__oxtitle->fldmax_length}]" id="oLockTarget" name="editval[oxcarrier__oxtitle]" value="[{$edit->oxcarrier__oxtitle->value}]" [{$readonly}]>
             </td>
         </tr>
         <tr>
@@ -150,7 +136,7 @@ function LockAssignment(obj)
             <td class="edittext"><br><br>
             </td>
             <td class="edittext" colspan="2"><br><br>
-                <input type="submit" class="edittext" id="oLockButton" name="saveArticle" value="[{oxmultilang ident="GENERAL_SAVE"}]" onClick="Javascript:document.myedit.fnc.value='save'" [{$readonly}] [{if !$edit->oxcarrier__oxtitle->value && !$oxparentid}]disabled[{/if}]><br>
+                <input type="submit" class="edittext" id="oLockButton" name="saveCarrier" value="[{oxmultilang ident="GENERAL_SAVE"}]" onClick="Javascript:document.myedit.fnc.value='save'" [{$readonly}] [{if !$edit->oxcarrier__oxtitle->value && !$oxparentid}]disabled[{/if}]><br>
             </td>
         </tr>
 
