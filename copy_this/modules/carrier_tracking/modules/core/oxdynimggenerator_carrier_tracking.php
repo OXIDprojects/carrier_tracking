@@ -32,7 +32,7 @@ class oxdynimggenerator_carrier_tracking extends oxdynimggenerator_carrier_track
                                           "sCatPromotionsize"     => '/.*\/generated\/category\/promo_icon\/\d+\_\d+\_\d+$/', // Category picture size for promotion on startpage
 
                                           // ** carrier
-                                          "sCarrierIconSsize"     => '/.*\/generated\/carrier\/icon\/\d+\_\d+\_\d+$/' // carrier logo size
+                                          "sCarrierIconSize"     => '/.*\/generated\/carrier\/icon\/\d+\_\d+\_\d+$/' // carrier logo size
     );
 
 

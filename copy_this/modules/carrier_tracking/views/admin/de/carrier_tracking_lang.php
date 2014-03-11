@@ -15,8 +15,8 @@ $aLang = array(
 # tabs
 'tbclcarrier_main'             => 'Stamm',
 
-'SHOP_THEME_sCarrierIconSsize'             => 'Größe des Paketdienst-Icons in Pixeln (Breite*Höhe)',
-'HELP_SHOP_THEME_sCarrierIconSsize'             => 'Artikel-Icons sind die kleinsten Bilder eines Artikels. Sie werden z. B. <br>' .
+'SHOP_THEME_sCarrierIconSize'             => 'Größe des Paketdienst-Icons in Pixeln (Breite*Höhe)',
+'HELP_SHOP_THEME_sCarrierIconSize'             => 'Artikel-Icons sind die kleinsten Bilder eines Artikels. Sie werden z. B. <br>' .
 '<ul><li>im Warenkorb angezeigt</li>' .
 '<li>angezeigt, wenn Artikel in der Seitenleiste aufgelistet werden (z.B. bei den Aktionen <span class="filename_filepath_or_italic">Top of the Shop</span> und <span class="filename_filepath_or_italic">Schnäppchen</span>).</li></ul>' .
 'Damit die Harmonie des eShops nicht durch zu große Icons gestört wird, werden zu große Icons automatisch verkleinert. Die maximale Größe können Sie hier eingeben.<br>',

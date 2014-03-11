@@ -12,16 +12,15 @@ ALTER TABLE `oxcarrier` CHANGE `OXINSERT` `OXTIMESTAMP` TIMESTAMP ON UPDATE CURR
 ALTER TABLE `oxorder` CHANGE `OXTRACKADR` `OXCARRIERURL` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'alternative Url';
 
 
-
 /*
 Next Line: currently not used
 */
 #INSERT INTO `oxconfigdisplay` (`OXID`, `OXCFGMODULE`, `OXCFGVARNAME`, `OXGROUPING`, `OXVARCONSTRAINT`, `OXPOS`) VALUES
-#('1ec4235c2aee774aa45d772875437920', 'theme:azure', 'sCarrierIconSsize', 'images', '', 1);
+#(md5('carrier sCarrierIconSize'), 'theme:azure', 'sCarrierIconSize', 'images', '', 1);
 
 #INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
-#('1ec4235c2aee774aa45d772875437920', 'oxbaseshop', 'theme:azure', 'sCarrierIconSsize', 'str', 0x8064a213b1);
+#(md5('carrier sCarrierIconSize'), 'oxbaseshop', 'theme:azure', 'sCarrierIconSize', 'str', 0x8064a213b1);
 
 #INSERT INTO `oxconfig` (`OXID`, `OXSHOPID`, `OXMODULE`, `OXVARNAME`, `OXVARTYPE`, `OXVARVALUE`) VALUES
-#('1ec4235c2aee774aa45d772875437920', 'oxbaseshop', 'theme:mobile', 'sCarrierIconSsize', 'str', 0x8064a213b1);
+#(md5('carrier sCarrierIconSize'), 'oxbaseshop', 'theme:mobile', 'sCarrierIconSize', 'str', 0x8064a213b1);
 
