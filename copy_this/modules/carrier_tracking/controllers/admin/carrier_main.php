@@ -177,7 +177,7 @@ class Carrier_Main extends oxAdminDetails
         }
 
         /** @var oxcarrier $oCarrier */
-        $oCarrier = oxNew( "oxcarrier");
+        $oCarrier = oxNew("oxcarrier");
         $oCarrier->load($sOxId);
         $this->_deleteCatPicture($oCarrier, $sField);
     }
@@ -208,7 +208,7 @@ class Carrier_Main extends oxAdminDetails
 
             $myUtilsPic = oxRegistry::get("oxUtilsPic");
             $sDir = $myConfig->getPictureDir(false);
-            $myUtilsPic->safePictureDelete($oItem->$sItemKey->value, $sDir . oxRegistry::get("oxUtilsFile")->getImageDirByType($sImgType), 'oxcarrier', $sField);
+            $myUtilsPic->safePictureDelete($oItem->$sItemKey->value, $sDir . oxRegistry::get("oxUtilsFile")->getImageDirByType($sImgType), 'oxcarriers', $sField);
 
             $oItem->$sItemKey = new oxField();
             $oItem->save();

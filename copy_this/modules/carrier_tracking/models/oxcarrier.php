@@ -79,8 +79,11 @@ class oxCarrier extends oxI18n
     {
         $sIcon = $this->getFieldData('oxicon');
 
-        if ( $sIcon) {
+        if ($sIcon) {
             return $this->getConfig()->getPictureUrl( "master/carrier/icon/".$sIcon, false, $this->getConfig()->isSsl(), null, $this->getFieldData('oxshopid') );
+        }
+        else{
+            return '';
         }
 
         /*
