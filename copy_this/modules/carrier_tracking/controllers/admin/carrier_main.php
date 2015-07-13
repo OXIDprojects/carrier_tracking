@@ -73,8 +73,8 @@ class Carrier_Main extends oxAdminDetails
     public function save()
     {
         parent::save();
-        $soxId      = oxConfig::getParameter("oxid");
-        $aParams    = oxConfig::getParameter("editval");
+        $soxId      = oxRegistry::getConfig()->getRequestParameter("oxid");
+        $aParams    = oxRegistry::getConfig()->getRequestParameter("editval");
 
         // checkbox handling
         if (!isset($aParams['oxcarriers__oxactive'])) {
@@ -122,8 +122,8 @@ class Carrier_Main extends oxAdminDetails
      */
     public function saveinnlang()
     {
-        $soxId      = oxConfig::getParameter( "oxid");
-        $aParams    = oxConfig::getParameter( "editval");
+        $soxId      = oxRegistry::getConfig()->getRequestParameter( "oxid");
+        $aParams    = oxRegistry::getConfig()->getRequestParameter( "editval");
         // checkbox handling
         if (!isset($aParams['oxcarriers__oxactive'])) {
             $aParams['oxcarriers__oxactive'] = 0;
@@ -171,7 +171,7 @@ class Carrier_Main extends oxAdminDetails
         }
 
         $sOxId = $this->getEditObjectId();
-        $sField = oxConfig::getParameter('masterPicField');
+        $sField = oxRegistry::getConfig()->getRequestParameter('masterPicField');
         if (empty($sField)) {
             return;
         }
